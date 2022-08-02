@@ -39,8 +39,8 @@ def lambda_handler ( event, context ):
     # ver_cistate( dxclient.describe_interconnects() )
 
 # virtualInterfaces payload evaluation
-def ver_vistate ( data ):
-    if not 'virtualInterfaces' in data:
+def ver_vistate( data ):
+    if 'virtualInterfaces' not in data:
         logger.error("unexpected: virtualInterfaces key not found in data")
         return
     for iface in data['virtualInterfaces']:
@@ -48,8 +48,8 @@ def ver_vistate ( data ):
                      VirtualInterfaceState[iface['virtualInterfaceState']].value )
 
 # connections payload evaluation
-def ver_cstate ( data ):
-    if not 'connections' in data:
+def ver_cstate( data ):
+    if 'connections' not in data:
         logger.error("unexpected: connections key not found in data")
         return
     for conn in data['connections']:
@@ -58,8 +58,8 @@ def ver_cstate ( data ):
                     ConnectionState[conn['connectionState']].value )
 
 # interconnect payload evaluation
-def ver_cistate ( data ):
-    if not 'interconnects' in data:
+def ver_cistate( data ):
+    if 'interconnects' not in data:
         logger.error("unexpected: interconnects key not found in data")
         return
     for intconn in data['interconnects']:
@@ -69,7 +69,7 @@ def ver_cistate ( data ):
 
 # virtualgateway payload evaluation
 def ver_vpgstate( data ):
-    if not 'virtualGateways' in data:
+    if 'virtualGateways' not in data:
         logger.error("unexpected: virtualGateways key not found in data")
         return
     for vpg in data['virtualGateways']:
@@ -79,7 +79,7 @@ def ver_vpgstate( data ):
 
 # direct connect gateway payload evaluation
 def ver_dxgwstate( data ):
-    if not 'directConnectGateways' in data:
+    if 'directConnectGateways' not in data:
         logger.error("unexpected: directConnectGateways key not found in data")
         return
     for dxgw in data['directConnectGateways']:
